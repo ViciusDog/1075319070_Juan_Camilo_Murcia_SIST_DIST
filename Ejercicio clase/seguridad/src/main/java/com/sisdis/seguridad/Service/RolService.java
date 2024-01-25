@@ -10,13 +10,14 @@ import org.springframework.stereotype.Service;
 import com.sisdis.seguridad.Entity.Persona;
 import com.sisdis.seguridad.IRepository.IPersonaRepository;
 import com.sisdis.seguridad.IService.IPersonaService;
+import com.sisdis.seguridad.IService.IRolService;
 
 @Service
-public class RolService implements IPersonaService {
+public class RolService implements IRolService {
 
 	@Autowired
 	private IPersonaRepository repository;
-	
+
 	@Override
 	public List<Persona> all() {
 		return repository.findAll();
@@ -29,8 +30,7 @@ public class RolService implements IPersonaService {
 
 	@Override
 	public Persona save(Persona Rol) {
-		
-		Rol.setFechaCreacion(LocalDateTime.now());		
+		Rol.setFechaCreacion(LocalDateTime.now());
 		return repository.save(Rol);
 	}
 
@@ -56,7 +56,6 @@ public class RolService implements IPersonaService {
 			// Actualizar el objeto
 			repository.save(RolUpdate);
 		}
-
 	}
 
 	@Override
